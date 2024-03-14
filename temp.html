@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .converter-container {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      width: 300px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="converter-container">
+    <h2>Temperature Converter</h2>
+
+    <label for="celsius">Enter Temperature in Celsius:</label>
+    <input type="number" id="celsius" placeholder="Enter Celsius" required>
+
+    <button onclick="convertTemperature()">Convert</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function convertTemperature() {
+      var celsiusInput = document.getElementById('celsius');
+      var resultDisplay = document.getElementById('result');
+
+      var celsius = parseFloat(celsiusInput.value);
+
+      if (!isNaN(celsius)) {
+        var fahrenheit = (celsius * 9/5) + 32;
+        resultDisplay.innerHTML = `${celsius}°C is equal to ${fahrenheit.toFixed(2)}°F`;
+      } else {
+        resultDisplay.innerHTML = 'Please enter a valid temperature in Celsius.';
+      }
+    }
+  </script>
+
+</body>
+</html>
